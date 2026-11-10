@@ -29,9 +29,14 @@ function PortfolioApp() {
       if (hash.startsWith('#project-')) {
         const projectId = hash.replace('#project-', '');
         const found = PROJECTS_DATA.find((p) => p.id === projectId);
-        if (found) setSelectedProject(found);
+        setSelectedProject(found ?? null);
+        setIsQuickScanOpen(false);
       } else if (hash === '#quick-scan') {
+        setSelectedProject(null);
         setIsQuickScanOpen(true);
+      } else {
+        setSelectedProject(null);
+        setIsQuickScanOpen(false);
       }
     };
 
@@ -54,11 +59,9 @@ function PortfolioApp() {
         {/* Section 01: Hero / Introduction */}
         <Hero onOpenPhotoModal={() => setIsPhotoModalOpen(true)} />
 
-        {/* Section 02: About Me */}
-        <AboutMe />
-
-        {/* Section 03: Featured Projects */}
+        {/* Lead with the applicant's selected projects. */}
         <FeaturedProjects onSelectProject={(project) => setSelectedProject(project)} />
+        <AboutMe />
 
         {/* Section 04: Problem Solving (STAR Cases) */}
         <ProblemSolving />
@@ -66,7 +69,7 @@ function PortfolioApp() {
         {/* Section 05: Education & Certifications */}
         <EducationCertifications />
 
-        {/* Section 06: Resume (Official OpenSurvey Notion Resume) */}
+        {/* Related project documentation */}
         <ResumeSection />
 
         {/* Section 07: Contact */}
@@ -82,14 +85,19 @@ function PortfolioApp() {
         onClose={() => {
           setSelectedProject(null);
           if (window.location.hash.startsWith('#project-')) {
-            history.pushState(null, '', window.location.pathname);
+            history.replaceState(null, '', window.location.pathname + window.location.search + '#projects');
           }
         }}
       />
 
       <RecruiterQuickView
         isOpen={isQuickScanOpen}
-        onClose={() => setIsQuickScanOpen(false)}
+        onClose={() => {
+          setIsQuickScanOpen(false);
+          if (window.location.hash === '#quick-scan') {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }}
         onOpenProject={handleOpenProjectById}
       />
 
