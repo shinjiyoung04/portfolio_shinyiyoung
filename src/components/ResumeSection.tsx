@@ -12,15 +12,15 @@ export const ResumeSection: React.FC = () => {
         {/* Section Header */}
         <div className="max-w-3xl mb-8">
           <div className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">
-            Resume
+            Resources
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">
-            {t('이력서', 'Resume')}
+            {t('관련 자료', 'Resources')}
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
             {t(
-              '오픈서베이 지원을 위해 작성된 공식 노션 이력서입니다.',
-              'Official Notion resume prepared for OpenSurvey.'
+              '프로젝트 기록과 추가 자료는 기존 Notion 포트폴리오에서 확인할 수 있습니다.',
+              'Explore project notes and supporting material in my Notion portfolio.'
             )}
           </p>
         </div>
@@ -29,31 +29,31 @@ export const ResumeSection: React.FC = () => {
         <div className="max-w-2xl p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
           <div className="flex items-center justify-between gap-2 mb-3">
             <span className="text-[11px] font-semibold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded">
-              {t('오픈서베이 지원 이력서', 'OpenSurvey Resume')}
+              {t('Notion 포트폴리오', 'Notion Portfolio')}
             </span>
             <span className="text-xs text-slate-400 font-mono">Notion</span>
           </div>
 
           <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
             <FileText className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            <span>신지영 이력서 (오픈서베이)</span>
+            <span>{t('신지영 포트폴리오', 'Shin JiYoung Portfolio')}</span>
           </h3>
 
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
             {t(
-              '오픈서베이 백엔드/소프트웨어 엔지니어 지원을 위해 기술 스택, 핵심 프로젝트 기여도 및 문제 해결 경험을 정리한 공식 노션 이력서입니다.',
-              'Official Notion resume prepared for the OpenSurvey software engineer position, detailing core stack, project contributions, and problem-solving cases.'
+              '프로젝트별 상세 기록을 모아 둔 페이지입니다.',
+              'A collection of project documentation and notes.'
             )}
           </p>
 
           <div>
             <a
-              href={PERSONAL_INFO.opensurveyNotionUrl}
+              href={PERSONAL_INFO.notionUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-xs"
             >
-              <span>{t('오픈서베이 이력서 열기 (Notion)', 'Open Notion Resume')}</span>
+              <span>{t('Notion 포트폴리오 열기', 'Open Notion Portfolio')}</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
