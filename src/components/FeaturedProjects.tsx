@@ -33,12 +33,12 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
             {t('실제 수행 프로젝트', 'Featured Engineering Projects')}
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
-            {t('대표 프로젝트 및 검증된 개인 기여', 'Projects & Transparent Personal Scope')}
+            {t('대표 프로젝트와 참여 경험', 'Selected Projects & Experience')}
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
             {t(
-              '팀 전체의 결과물을 과장하지 않고, 지원자가 백엔드 엔지니어로서 직접 설계하고 구현한 역할과 기술적 문제 해결 과정을 명확하게 구분하여 제시합니다.',
-              'No ambiguous team-level exaggerations. All projects clearly distinguish between broader team achievements and the precise backend modules, data pipelines, and security controls built independently.'
+              'Meetup Log와 BookCast를 중심으로 소개합니다. 팀 서비스의 전체 기능과 개인 담당 업무를 구분해 정리했습니다.',
+              'Meetup Log and BookCast lead this selection. Team service functionality is presented separately from individual responsibilities.'
             )}
           </p>
         </div>
@@ -52,7 +52,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
             >
               <div>
                 {/* Card Top Unboxed Metadata */}
-                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400 mb-3">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-blue-600 dark:text-blue-400 font-mono">
                       0{idx + 1}
@@ -60,7 +60,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
                     <span aria-hidden="true">·</span>
                     <span>{project.category}</span>
                   </div>
-                  <span className="font-mono">{project.period}</span>
+                  {project.period && <span className="font-mono">{project.period}</span>}
                 </div>
 
                 {/* Project Title & Icon */}
@@ -92,18 +92,19 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
                 <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/60 mb-5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-blue-700 dark:text-blue-300 mb-2">
                     <Shield className="w-3.5 h-3.5" />
-                    <span>{t('신지영 직접 구현 역할', 'Direct Personal Scope')}</span>
+                    <span>{t(project.contributionLabelKo, project.contributionLabelEn)}</span>
                   </div>
                   <ul className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300">
-                    {project.personalContributionKo.slice(0, 2).map((item, cIdx) => (
+                    {project.personalContributionKo.map((item, cIdx) => (
                       <li key={cIdx} className="flex items-start gap-1.5">
                         <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-                        <span className="line-clamp-2">{t(item, project.personalContributionEn[cIdx])}</span>
+                        <span>{t(item, project.personalContributionEn[cIdx])}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-1.5">{t('프로젝트 사용 기술', 'Project technologies')}</p>
                 {/* Tech Stack List */}
                 <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono mb-6">
                   {project.techStack.map((tech, tIdx) => (
@@ -121,7 +122,7 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
                   onClick={() => onSelectProject(project)}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                 >
-                  <span>{t('상세 분석 보기', 'Deep Dive Analysis')}</span>
+                  <span>{t('프로젝트 상세보기', 'Project Details')}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
 
@@ -150,6 +151,10 @@ export const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ onSelectProj
               </div>
             </div>
           ))}
+        </div>
+        <div className="mt-6 p-5 rounded-xl border border-slate-200 dark:border-slate-800 text-sm text-slate-600 dark:text-slate-400">
+          <span className="font-semibold text-slate-800 dark:text-slate-200 mr-3">NEW ERA</span>
+          <span>{t('졸업 프로젝트 참여', 'Graduation project participation')}</span>
         </div>
       </div>
     </section>
