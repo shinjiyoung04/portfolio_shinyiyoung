@@ -67,8 +67,8 @@ export const Footer: React.FC = () => {
             <ShieldCheck className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
             <span>
               {t(
-                '본 포트폴리오의 모든 프로젝트 기여도와 자격 사항은 사실에 근거하여 작성되었습니다.',
-                'All project contributions and certification statuses are strictly verified and factually accurate.'
+                '교육 및 팀 프로젝트에서의 참여 경험을 소개합니다.',
+                'A portfolio of coursework and team project participation.'
               )}
             </span>
           </div>
