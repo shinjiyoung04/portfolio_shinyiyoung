@@ -1,6 +1,6 @@
 {
   "name": "Shin JiYoung | Backend Developer Portfolio",
-  "description": "신입 백엔드 및 소프트웨어 개발자 신지영(Shin JiYoung)의 포트폴리오 웹사이트입니다. Java, Spring Boot, Python, FastAPI 기반의 서버 아키텍처 및 데이터 엔지니어링 프로젝트와 문제 해결 경험을 소개합니다.",
+  "description": "신입 백엔드 개발자 신지영의 포트폴리오. Meetup Log 영화 추천 프로젝트, BookCast 공공데이터 도서 검색·등업·권한 담당 경험과 교육 이력을 소개합니다.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

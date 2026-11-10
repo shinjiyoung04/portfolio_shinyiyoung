@@ -15,27 +15,27 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuickScan }) => {
   const navItems = [
     { href: '#about', labelKo: '소개', labelEn: 'About' },
     { href: '#projects', labelKo: '프로젝트', labelEn: 'Projects' },
-    { href: '#problem-solving', labelKo: '문제 해결', labelEn: 'Case Studies' },
+    { href: '#problem-solving', labelKo: '주요 기능', labelEn: 'Features' },
     { href: '#education', labelKo: '학력·자격', labelEn: 'Education' },
-    { href: '#resume', labelKo: '이력서', labelEn: 'Resume' },
+    { href: '#resume', labelKo: '관련 자료', labelEn: 'Resources' },
     { href: '#contact', labelKo: '연락처', labelEn: 'Contact' },
   ];
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-2 sm:gap-6">
         {/* Zone 1: Brand Wordmark */}
         <a
           href="#top"
           className="group flex items-center gap-2 text-slate-900 dark:text-white font-bold tracking-tight text-base sm:text-lg whitespace-nowrap shrink-0 hover:opacity-90 transition-opacity"
         >
           <span>신지영</span>
-          <span className="text-slate-300 dark:text-slate-700 font-normal">/</span>
-          <span className="font-medium text-slate-600 dark:text-slate-400 text-sm sm:text-base">Shin JiYoung</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-700 font-normal">/</span>
+          <span className="hidden sm:inline font-medium text-slate-600 dark:text-slate-400 text-sm sm:text-base">Shin JiYoung</span>
         </a>
 
         {/* Zone 2: Navigation Links (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <nav className="hidden lg:flex items-center gap-4 text-sm font-medium text-slate-600 dark:text-slate-300">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -84,7 +84,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuickScan }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Open navigation menu"
+            aria-label={t(mobileMenuOpen ? '메뉴 닫기' : '메뉴 열기', mobileMenuOpen ? 'Close menu' : 'Open menu')}
+            aria-expanded={mobileMenuOpen}
             className="lg:hidden p-2 rounded-md text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
