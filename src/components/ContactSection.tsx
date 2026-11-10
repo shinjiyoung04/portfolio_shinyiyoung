@@ -7,10 +7,17 @@ export const ContactSection: React.FC = () => {
   const { t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(PERSONAL_INFO.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+  const [copyFailed, setCopyFailed] = useState(false);
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PERSONAL_INFO.email);
+      setCopied(true);
+      setCopyFailed(false);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      setCopied(false);
+      setCopyFailed(true);
+    }
   };
 
   return (
@@ -43,7 +50,7 @@ export const ContactSection: React.FC = () => {
                 <span className="text-xs text-slate-500 dark:text-slate-400 block mb-0.5">
                   {t('대표 이메일 (Official Email)', 'Official Email')}
                 </span>
-                <span className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white select-all">
+                <span className="text-sm sm:text-lg break-all font-bold font-mono text-slate-900 dark:text-white select-all">
                   {PERSONAL_INFO.email}
                 </span>
               </div>
@@ -79,6 +86,7 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
+          {copyFailed && <p role="status" className="text-xs text-slate-600 dark:text-slate-400">{t('이메일 주소를 선택해 직접 복사해 주세요.', 'Please select and copy the email address manually.')}</p>}
           {/* External Links Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
