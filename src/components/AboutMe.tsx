@@ -81,7 +81,7 @@ export const AboutMe: React.FC = () => {
               <GraduationCap className="w-5 h-5 text-slate-800 dark:text-slate-200" />
             </div>
             <div>
-              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-0.5">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500 dark:text-slate-400 mb-0.5">
                 <span>{t(univ.statusKo, univ.statusEn)}</span>
                 <span aria-hidden="true">·</span>
                 <span className="font-mono">{univ.period}</span>
