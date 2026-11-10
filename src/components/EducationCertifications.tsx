@@ -37,7 +37,7 @@ export const EducationCertifications: React.FC = () => {
                 </h3>
               </div>
               <div className="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-                <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-1">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400 mb-1">
                   <span className="font-semibold text-blue-600 dark:text-blue-400">{t(univ.statusKo, univ.statusEn)}</span>
                   <span className="font-mono">{univ.period}</span>
                 </div>
@@ -72,7 +72,7 @@ export const EducationCertifications: React.FC = () => {
                     key={idx}
                     className="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs"
                   >
-                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-1">
+                    <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400 mb-1">
                       <span className="font-semibold text-emerald-600 dark:text-emerald-400">{t(edu.statusKo, edu.statusEn)}</span>
                       <span className="font-mono">{edu.period}</span>
                     </div>
@@ -132,7 +132,7 @@ export const EducationCertifications: React.FC = () => {
               <div className="flex items-center gap-2 mb-3">
                 <FileCheck className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                 <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                  {t('시험 합격 (최종 자격증 미취득)', 'Exam Passed (Practical Exam Pending)')}
+                  {t('시험 합격 (최종 자격증 미취득)', 'Written Exam Passed (Final Qualification Not Obtained)')}
                 </h3>
               </div>
               <div className="space-y-2">
@@ -150,12 +150,12 @@ export const EducationCertifications: React.FC = () => {
                       </span>
                     </div>
                     <div className="text-xs text-amber-800/80 dark:text-amber-300/80 mb-1">
-                      {t(cert.issuerKo, cert.issuerEn)} · {cert.date}
+                      {t(cert.issuerKo, cert.issuerEn)}{cert.date && <> · {cert.date}</>}
                     </div>
                     <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                       {t(
-                        '필기 시험 합격 상태이며, 실기 시험 준비 중으로 최종 자격증 미취득 상태입니다.',
-                        'Written examination passed; practical exam is pending and final certificate is not yet issued.'
+                        '필기 시험 합격 상태이며, 최종 자격증은 취득하지 않았습니다.',
+                        'Written examination passed; the final qualification has not been obtained.'
                       )}
                     </p>
                   </div>
